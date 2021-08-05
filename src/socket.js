@@ -1,3 +1,8 @@
 module.exports = (io) => {
-    console.log('Archivo socket ha sido cargado')
+    io.on('connection', (socket) => {
+        console.log("Un usuario se ha conectado")
+        socket.on('disconnect', () => {
+            console.log('El usuario se ha desconectado')
+        })
+    })
 }
